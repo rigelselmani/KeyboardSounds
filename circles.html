@@ -3,12 +3,27 @@
     <title>Circles</title>
 <link rel="stylesheet" text="text/css" href="circles.css">    
 <script type="text/javascript" src="dist/paper-full.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.2/howler.core.min.js"></script>
 
 <script type="text/paperscript" canvas="myCanvas">
 
+    var sound1 = new Howl({
+        src: ['sounds/bubbles.mp3']
+      });
+      
+      var sound2 = new Howl({
+        src: ['sounds/confetti.mp3']
+      });
+      
     var circles=[];
 
     function onKeyDown(event) {
+        if (event.key ==="a"){
+            sound1.play();
+        }
+        if(event.key==="s"){
+           sound2.play();
+        }
         var maxPoint = new Point(view.size.width, view.size.height);
         var  randomPoint = Point.random();
         var point = maxPoint * randomPoint;
